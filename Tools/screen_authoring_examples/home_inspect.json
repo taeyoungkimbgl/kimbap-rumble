@@ -1,0 +1,5 @@
+{
+  "action": "inspect",
+  "scene": "Assets/Scenes/GameScene.unity",
+  "path": "Canvases/CanvasHome"
+}

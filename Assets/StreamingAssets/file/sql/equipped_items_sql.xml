@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT slot_type, equipment_id
+    FROM equipped_items
+    ORDER BY slot_type;
+  </select>
+  <insert id="upsert">
+    INSERT INTO equipped_items (slot_type, equipment_id)
+    VALUES (@slot_type, @equipment_id)
+    ON CONFLICT(slot_type) DO UPDATE SET equipment_id = excluded.equipment_id;
+  </insert>
+</sql>

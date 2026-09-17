@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT photo_variant_id, location_id, fragment_index, background_image_path,
+           character_image_path, sort_order
+    FROM photo_variants
+    ORDER BY sort_order, photo_variant_id;
+  </select>
+  <select id="select_by_location_id">
+    SELECT photo_variant_id, location_id, fragment_index, background_image_path,
+           character_image_path, sort_order
+    FROM photo_variants
+    WHERE location_id = @location_id
+    ORDER BY fragment_index, photo_variant_id;
+  </select>
+  <insert id="upsert">
+    INSERT INTO photo_variants (
+      photo_variant_id, location_id, fragment_index, background_image_path,
+      character_image_path, sort_order
+    ) VALUES (
+      @photo_variant_id, @location_id, @fragment_index, @background_image_path,
+      @character_image_path, @sort_order
+    )
+    ON CONFLICT(photo_variant_id) DO UPDATE SET
+      location_id = excluded.location_id,
+      fragment_index = excluded.fragment_index,
+      background_image_path = excluded.background_image_path,
+      character_image_path = excluded.character_image_path,
+      sort_order = excluded.sort_order;
+  </insert>
+  <delete id="delete_by_id">
+    DELETE FROM photo_variants WHERE photo_variant_id = @photo_variant_id;
+  </delete>
+</sql>

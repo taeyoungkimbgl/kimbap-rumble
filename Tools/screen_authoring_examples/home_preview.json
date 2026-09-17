@@ -1,0 +1,19 @@
+{
+  "action": "preview",
+  "scene": "Assets/Scenes/GameScene.unity",
+  "path": "Canvases/CanvasHome",
+  "resolutions": [
+    [
+      1920,
+      1080
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      2560,
+      1080
+    ]
+  ]
+}

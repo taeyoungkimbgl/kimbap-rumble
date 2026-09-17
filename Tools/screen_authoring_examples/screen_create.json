@@ -1,0 +1,110 @@
+{
+  "action": "apply",
+  "scene": "Assets/Scenes/GameScene.unity",
+  "save": false,
+  "operations": [
+    {
+      "op": "create",
+      "kind": "Canvas",
+      "parent": "Canvases",
+      "name": "CanvasExample",
+      "properties": {
+        "active": false
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Panel",
+      "parent": "Canvases/CanvasExample",
+      "name": "Background",
+      "properties": {
+        "anchorMin": [
+          0,
+          0
+        ],
+        "anchorMax": [
+          1,
+          1
+        ],
+        "size": [
+          0,
+          0
+        ],
+        "color": [
+          0.16,
+          0.16,
+          0.16,
+          1
+        ]
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Rect",
+      "parent": "Canvases/CanvasExample",
+      "name": "PanelExample",
+      "properties": {
+        "size": [
+          1920,
+          1080
+        ]
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Text",
+      "parent": "Canvases/CanvasExample/PanelExample",
+      "name": "Title",
+      "properties": {
+        "text": "EXAMPLE SCREEN",
+        "position": [
+          0,
+          424
+        ],
+        "size": [
+          512,
+          72
+        ],
+        "fontSize": 40
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Button",
+      "parent": "Canvases/CanvasExample/PanelExample",
+      "name": "ConfirmButton",
+      "properties": {
+        "position": [
+          0,
+          -408
+        ],
+        "size": [
+          480,
+          120
+        ]
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Text",
+      "parent": "Canvases/CanvasExample/PanelExample/ConfirmButton",
+      "name": "Label",
+      "properties": {
+        "text": "CONFIRM",
+        "anchorMin": [
+          0,
+          0
+        ],
+        "anchorMax": [
+          1,
+          1
+        ],
+        "size": [
+          0,
+          0
+        ],
+        "fontSize": 48
+      }
+    }
+  ]
+}

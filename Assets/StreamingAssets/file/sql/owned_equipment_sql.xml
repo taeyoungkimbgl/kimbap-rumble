@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT equipment_id, acquired_utc_seconds
+    FROM owned_equipment
+    ORDER BY acquired_utc_seconds, equipment_id;
+  </select>
+  <insert id="insert_or_ignore">
+    INSERT INTO owned_equipment (equipment_id, acquired_utc_seconds)
+    VALUES (@equipment_id, @acquired_utc_seconds)
+    ON CONFLICT(equipment_id) DO NOTHING;
+  </insert>
+</sql>

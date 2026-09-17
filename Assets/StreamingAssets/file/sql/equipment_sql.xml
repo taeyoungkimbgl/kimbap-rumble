@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT equipment_id, slot_type, name_key, home_image_path, photo_image_path,
+           list_icon_image_path, detail_icon_image_path, is_initial_owned, sort_order
+    FROM equipment
+    ORDER BY sort_order, equipment_id;
+  </select>
+  <select id="select_initial_owned">
+    SELECT equipment_id, slot_type, name_key, home_image_path, photo_image_path,
+           list_icon_image_path, detail_icon_image_path, is_initial_owned, sort_order
+    FROM equipment
+    WHERE is_initial_owned = 1
+    ORDER BY sort_order, equipment_id;
+  </select>
+  <select id="select_by_id">
+    SELECT equipment_id, slot_type, name_key, home_image_path, photo_image_path,
+           list_icon_image_path, detail_icon_image_path, is_initial_owned, sort_order
+    FROM equipment
+    WHERE equipment_id = @equipment_id;
+  </select>
+  <insert id="upsert">
+    INSERT INTO equipment (
+      equipment_id, slot_type, name_key, home_image_path, photo_image_path,
+      list_icon_image_path, detail_icon_image_path, is_initial_owned, sort_order
+    ) VALUES (
+      @equipment_id, @slot_type, @name_key, @home_image_path, @photo_image_path,
+      @list_icon_image_path, @detail_icon_image_path, @is_initial_owned, @sort_order
+    )
+    ON CONFLICT(equipment_id) DO UPDATE SET
+      slot_type = excluded.slot_type,
+      name_key = excluded.name_key,
+      home_image_path = excluded.home_image_path,
+      photo_image_path = excluded.photo_image_path,
+      list_icon_image_path = excluded.list_icon_image_path,
+      detail_icon_image_path = excluded.detail_icon_image_path,
+      is_initial_owned = excluded.is_initial_owned,
+      sort_order = excluded.sort_order;
+  </insert>
+  <delete id="delete_by_id">
+    DELETE FROM equipment WHERE equipment_id = @equipment_id;
+  </delete>
+</sql>

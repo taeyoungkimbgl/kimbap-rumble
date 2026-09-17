@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT photo_variant_id, layer_type, position_x, position_y, rotation_degrees,
+           scale_x, scale_y, sorting_order
+    FROM photo_layer_layouts
+    ORDER BY photo_variant_id, sorting_order, layer_type;
+  </select>
+  <select id="select_by_photo_variant_id">
+    SELECT photo_variant_id, layer_type, position_x, position_y, rotation_degrees,
+           scale_x, scale_y, sorting_order
+    FROM photo_layer_layouts
+    WHERE photo_variant_id = @photo_variant_id
+    ORDER BY sorting_order, layer_type;
+  </select>
+  <insert id="upsert">
+    INSERT INTO photo_layer_layouts (
+      photo_variant_id, layer_type, position_x, position_y, rotation_degrees,
+      scale_x, scale_y, sorting_order
+    ) VALUES (
+      @photo_variant_id, @layer_type, @position_x, @position_y, @rotation_degrees,
+      @scale_x, @scale_y, @sorting_order
+    )
+    ON CONFLICT(photo_variant_id, layer_type) DO UPDATE SET
+      position_x = excluded.position_x,
+      position_y = excluded.position_y,
+      rotation_degrees = excluded.rotation_degrees,
+      scale_x = excluded.scale_x,
+      scale_y = excluded.scale_y,
+      sorting_order = excluded.sorting_order;
+  </insert>
+  <delete id="delete_by_id">
+    DELETE FROM photo_layer_layouts
+    WHERE photo_variant_id = @photo_variant_id AND layer_type = @layer_type;
+  </delete>
+</sql>

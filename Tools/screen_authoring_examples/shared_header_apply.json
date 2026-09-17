@@ -1,0 +1,749 @@
+{
+  "action": "apply",
+  "scene": "Assets/Scenes/GameScene.unity",
+  "save": true,
+  "operations": [
+    {
+      "op": "create",
+      "kind": "Canvas",
+      "parent": "Canvases",
+      "name": "CanvasHeader",
+      "properties": {
+        "sortingOrder": 10
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Rect",
+      "parent": "Canvases/CanvasHeader",
+      "name": "SafeArea",
+      "properties": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          1920,
+          1080
+        ]
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Rect",
+      "parent": "Canvases/CanvasHeader/SafeArea",
+      "name": "HeaderRoot",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          80,
+          -64
+        ],
+        "size": [
+          1760,
+          72
+        ]
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Button",
+      "parent": "Canvases/CanvasHeader/SafeArea/HeaderRoot",
+      "name": "BackButton",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          72,
+          72
+        ],
+        "active": false,
+        "interactable": false
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Text",
+      "parent": "Canvases/CanvasHeader/SafeArea/HeaderRoot/BackButton",
+      "name": "Label",
+      "properties": {
+        "position": [
+          0,
+          0
+        ],
+        "size": [
+          72,
+          72
+        ],
+        "text": "<",
+        "font": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset",
+        "fontSize": 64.4,
+        "autoSize": false,
+        "color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "alignment": "Center",
+        "raycastTarget": false
+      }
+    },
+    {
+      "op": "create",
+      "kind": "Text",
+      "parent": "Canvases/CanvasHeader/SafeArea/HeaderRoot",
+      "name": "Title",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          96,
+          0
+        ],
+        "size": [
+          480,
+          72
+        ],
+        "text": "",
+        "font": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset",
+        "fontSize": 40,
+        "autoSize": false,
+        "alignment": "Left",
+        "raycastTarget": false
+      }
+    },
+    {
+      "op": "create",
+      "kind": "GameObject",
+      "parent": "GameSceneInstaller/ScreenViews",
+      "name": "HeaderView",
+      "properties": {
+        "active": false
+      }
+    },
+    {
+      "op": "addComponent",
+      "path": "GameSceneInstaller/ScreenViews/HeaderView",
+      "component": "Scripts.Features.GameScene.Header.HeaderView"
+    },
+    {
+      "op": "setReferences",
+      "path": "GameSceneInstaller/ScreenViews/HeaderView",
+      "component": "Scripts.Features.GameScene.Header.HeaderView",
+      "references": {
+        "_canvas": {
+          "path": "Canvases/CanvasHeader",
+          "component": "UnityEngine.Canvas"
+        },
+        "_title": {
+          "path": "Canvases/CanvasHeader/SafeArea/HeaderRoot/Title",
+          "component": "TMPro.TextMeshProUGUI"
+        },
+        "_backButton": {
+          "path": "Canvases/CanvasHeader/SafeArea/HeaderRoot/BackButton",
+          "component": "UnityEngine.UI.Button"
+        }
+      }
+    },
+    {
+      "op": "setReferences",
+      "path": "GameSceneInstaller",
+      "component": "Scripts.Features.GameScene.GameSceneInstaller",
+      "references": {
+        "_headerView": {
+          "path": "GameSceneInstaller/ScreenViews/HeaderView",
+          "component": "Scripts.Features.GameScene.Header.HeaderView"
+        }
+      }
+    },
+    {
+      "op": "update",
+      "path": "GameSceneInstaller/ScreenViews/HeaderView",
+      "properties": {
+        "active": true
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasHome",
+      "properties": {
+        "sortingOrder": 0
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory",
+      "properties": {
+        "sortingOrder": 0
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasAlbum",
+      "properties": {
+        "sortingOrder": 0
+      }
+    },
+    {
+      "op": "delete",
+      "path": "Canvases/CanvasHome/PanelHome/Title",
+      "confirmDelete": true
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasHome/PanelHome/CharacterPlaceholder",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          640,
+          -192
+        ],
+        "size": [
+          640,
+          640
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasHome/PanelHome/WeaponSlot",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          112,
+          -160
+        ],
+        "size": [
+          256,
+          320
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasHome/PanelHome/ShieldSlot",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          112,
+          -512
+        ],
+        "size": [
+          256,
+          320
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasHome/PanelHome/AccessorySlot",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          1552,
+          -368
+        ],
+        "size": [
+          256,
+          320
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasHome/PanelHome/RumbleButton",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          720,
+          -888
+        ],
+        "size": [
+          480,
+          120
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasHome/PanelHome/AlbumButton",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          1304,
+          -160
+        ],
+        "size": [
+          240,
+          72
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasHome/PanelHome/SettingsButton",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          1576,
+          -160
+        ],
+        "size": [
+          240,
+          72
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory/PanelInventory/CategoryTabs",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          80,
+          -160
+        ],
+        "size": [
+          752,
+          64
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory/PanelInventory/EquipmentListPanel",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          80,
+          -248
+        ],
+        "size": [
+          1088,
+          664
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory/PanelInventory/PreviewPanel",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          1216,
+          -248
+        ],
+        "size": [
+          624,
+          664
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory/PanelInventory/EquipmentListPanel/EquipmentGrid",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          40,
+          -40
+        ],
+        "size": [
+          1008,
+          504
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory/PanelInventory/PreviewPanel/CharacterPlaceholder",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          56,
+          -16
+        ],
+        "size": [
+          512,
+          512
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory/PanelInventory/PreviewPanel/EquipmentName",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          56,
+          -552
+        ],
+        "size": [
+          512,
+          48
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory/PanelInventory/PreviewPanel/SelectionLabel",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          56,
+          -624
+        ],
+        "size": [
+          512,
+          24
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory/PanelInventory/Actions",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          1216,
+          -944
+        ],
+        "size": [
+          624,
+          72
+        ]
+      }
+    },
+    {
+      "op": "delete",
+      "path": "Canvases/CanvasInventory/PanelInventory/Actions/BackButton",
+      "confirmDelete": true
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasInventory/PanelInventory/Actions/EquipButton",
+      "properties": {
+        "position": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "op": "delete",
+      "path": "Canvases/CanvasAlbum/PanelAlbum/Header/BackButton",
+      "confirmDelete": true
+    },
+    {
+      "op": "delete",
+      "path": "Canvases/CanvasAlbum/PanelAlbum/Header/Title",
+      "confirmDelete": true
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasAlbum/PanelAlbum/Header",
+      "properties": {
+        "name": "HeaderInfo",
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          80,
+          -64
+        ],
+        "size": [
+          1760,
+          72
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasAlbum/PanelAlbum/HeaderInfo/PhotoCount",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          1600,
+          -8
+        ],
+        "size": [
+          160,
+          48
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasAlbum/PanelAlbum/PhotoList",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          80,
+          -160
+        ],
+        "size": [
+          1760,
+          768
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "path": "Canvases/CanvasAlbum/PanelAlbum/Pagination",
+      "properties": {
+        "anchorMin": [
+          0,
+          1
+        ],
+        "anchorMax": [
+          0,
+          1
+        ],
+        "pivot": [
+          0,
+          1
+        ],
+        "position": [
+          80,
+          -944
+        ],
+        "size": [
+          1760,
+          72
+        ]
+      }
+    }
+  ]
+}

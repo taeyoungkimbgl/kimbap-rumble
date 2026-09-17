@@ -1,0 +1,17 @@
+{
+  "action": "apply",
+  "scene": "Assets/Scenes/GameScene.unity",
+  "save": false,
+  "operations": [
+    {
+      "op": "update",
+      "path": "Canvases/CanvasHome/PanelHome/RumbleButton",
+      "properties": {
+        "size": [
+          512,
+          120
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "database_file": "master.db",
+  "database_sha256": "f5a1816cf62045b11ea4ee8508d3a9241f0f17667c977b35677be1ee29352bef",
+  "generated_at_utc": "2026-08-04T03:06:59Z",
+  "master_version": "20260804T030659Z",
+  "schema_version": "1",
+  "sheets": [
+    {
+      "columns": [
+        {
+          "constraint": "PRIMARY KEY",
+          "name": "unit_id",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "strength",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "defense",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "move_speed",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "attack_speed",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "attack_range",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "sight_range",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "max_hp",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "",
+          "name": "critical",
+          "type": "REAL"
+        },
+        {
+          "constraint": "",
+          "name": "luck",
+          "type": "REAL"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "drop_item_id",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "",
+          "name": "drop_item_ratio",
+          "type": "REAL"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "xp_reward",
+          "type": "INTEGER"
+        }
+      ],
+      "name": "units",
+      "row_count": 11
+    },
+    {
+      "columns": [
+        {
+          "constraint": "PRIMARY KEY",
+          "name": "item_id",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "strength",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "defense",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "move_speed",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "attack_speed",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "attack_range",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "sight_range",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "max_hp",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "",
+          "name": "critical",
+          "type": "REAL"
+        },
+        {
+          "constraint": "",
+          "name": "luck",
+          "type": "REAL"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "item_type",
+          "type": "TEXT"
+        }
+      ],
+      "name": "items",
+      "row_count": 11
+    },
+    {
+      "columns": [
+        {
+          "constraint": "PRIMARY KEY",
+          "name": "floor_id",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "map_id",
+          "type": "TEXT"
+        }
+      ],
+      "name": "floors",
+      "row_count": 3
+    },
+    {
+      "columns": [
+        {
+          "constraint": "PRIMARY KEY",
+          "name": "floor_room_id",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "floor_id",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "room_id",
+          "type": "TEXT"
+        }
+      ],
+      "name": "floor_rooms",
+      "row_count": 12
+    },
+    {
+      "columns": [
+        {
+          "constraint": "PRIMARY KEY",
+          "name": "map_id",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "width",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "height",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "description",
+          "type": "TEXT"
+        }
+      ],
+      "name": "maps",
+      "row_count": 1
+    },
+    {
+      "columns": [
+        {
+          "constraint": "PRIMARY KEY",
+          "name": "room_id",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "name",
+          "type": "TEXT"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "width",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "height",
+          "type": "INTEGER"
+        },
+        {
+          "constraint": "NOT NULL",
+          "name": "room_type",
+          "type": "TEXT"
+        }
+      ],
+      "name": "rooms",
+      "row_count": 4
+    }
+  ]
+}

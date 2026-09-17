@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT schema_version, base_content_version, created_utc_seconds,
+           updated_utc_seconds, logical_utc_seconds
+    FROM save_metadata
+    WHERE singleton_id = 1;
+  </select>
+  <insert id="insert">
+    INSERT INTO save_metadata (
+      singleton_id, schema_version, base_content_version, created_utc_seconds,
+      updated_utc_seconds, logical_utc_seconds
+    ) VALUES (
+      1, @schema_version, @base_content_version, @created_utc_seconds,
+      @updated_utc_seconds, @logical_utc_seconds
+    );
+  </insert>
+  <update id="update_time">
+    UPDATE save_metadata
+    SET logical_utc_seconds = @logical_utc_seconds,
+        updated_utc_seconds = @updated_utc_seconds
+    WHERE singleton_id = 1;
+  </update>
+  <update id="update_base_content_version">
+    UPDATE save_metadata
+    SET base_content_version = @base_content_version
+    WHERE singleton_id = 1;
+  </update>
+</sql>

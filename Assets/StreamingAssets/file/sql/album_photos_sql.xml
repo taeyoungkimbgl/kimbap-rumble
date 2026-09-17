@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT photo_id, acquired_utc_seconds, expires_utc_seconds, weapon_id,
+           shield_id, accessory_id, location_id, photo_variant_id
+    FROM album_photos
+    ORDER BY acquired_utc_seconds, photo_id;
+  </select>
+  <insert id="insert">
+    INSERT INTO album_photos (
+      acquired_utc_seconds, expires_utc_seconds, weapon_id, shield_id,
+      accessory_id, location_id, photo_variant_id
+    ) VALUES (
+      @acquired_utc_seconds, @expires_utc_seconds, @weapon_id, @shield_id,
+      @accessory_id, @location_id, @photo_variant_id
+    );
+  </insert>
+  <delete id="delete_by_id">
+    DELETE FROM album_photos WHERE photo_id = @photo_id;
+  </delete>
+  <delete id="delete_expired">
+    DELETE FROM album_photos WHERE expires_utc_seconds &lt;= @logical_utc_seconds;
+  </delete>
+  <delete id="trim_to_maximum">
+    DELETE FROM album_photos
+    WHERE photo_id IN (
+      SELECT photo_id
+      FROM album_photos
+      ORDER BY acquired_utc_seconds, photo_id
+      LIMIT CASE
+        WHEN (SELECT COUNT(*) FROM album_photos) &gt; @maximum_count
+        THEN (SELECT COUNT(*) FROM album_photos) - @maximum_count
+        ELSE 0
+      END
+    );
+  </delete>
+</sql>

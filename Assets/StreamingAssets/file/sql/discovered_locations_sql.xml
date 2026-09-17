@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT location_id, first_discovered_utc_seconds
+    FROM discovered_locations
+    ORDER BY first_discovered_utc_seconds, location_id;
+  </select>
+  <insert id="insert_or_ignore">
+    INSERT INTO discovered_locations (location_id, first_discovered_utc_seconds)
+    VALUES (@location_id, @first_discovered_utc_seconds)
+    ON CONFLICT(location_id) DO NOTHING;
+  </insert>
+</sql>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="last_insert_id">
+    SELECT last_insert_rowid();
+  </select>
+  <select id="foreign_key_check">
+    PRAGMA foreign_key_check;
+  </select>
+  <update id="enable_foreign_keys">
+    PRAGMA foreign_keys = ON;
+  </update>
+</sql>

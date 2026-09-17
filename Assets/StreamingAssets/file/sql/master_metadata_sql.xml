@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT pack_id, schema_version, content_version
+    FROM master_metadata;
+  </select>
+  <insert id="upsert">
+    INSERT INTO master_metadata (pack_id, schema_version, content_version)
+    VALUES (@pack_id, @schema_version, @content_version)
+    ON CONFLICT(pack_id) DO UPDATE SET
+      schema_version = excluded.schema_version,
+      content_version = excluded.content_version;
+  </insert>
+  <delete id="delete_by_id">
+    DELETE FROM master_metadata WHERE pack_id = @pack_id;
+  </delete>
+</sql>

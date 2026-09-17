@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT started_utc_seconds, completes_utc_seconds, weapon_id, shield_id,
+           accessory_id, location_id, photo_variant_id, reward_equipment_id
+    FROM active_rumble
+    WHERE singleton_id = 1;
+  </select>
+  <insert id="upsert">
+    INSERT INTO active_rumble (
+      singleton_id, started_utc_seconds, completes_utc_seconds, weapon_id,
+      shield_id, accessory_id, location_id, photo_variant_id, reward_equipment_id
+    ) VALUES (
+      1, @started_utc_seconds, @completes_utc_seconds, @weapon_id,
+      @shield_id, @accessory_id, @location_id, @photo_variant_id, @reward_equipment_id
+    )
+    ON CONFLICT(singleton_id) DO UPDATE SET
+      started_utc_seconds = excluded.started_utc_seconds,
+      completes_utc_seconds = excluded.completes_utc_seconds,
+      weapon_id = excluded.weapon_id,
+      shield_id = excluded.shield_id,
+      accessory_id = excluded.accessory_id,
+      location_id = excluded.location_id,
+      photo_variant_id = excluded.photo_variant_id,
+      reward_equipment_id = excluded.reward_equipment_id;
+  </insert>
+  <delete id="delete">
+    DELETE FROM active_rumble WHERE singleton_id = 1;
+  </delete>
+</sql>

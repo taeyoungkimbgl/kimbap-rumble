@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sql>
+  <select id="select_all">
+    SELECT location_id, internal_name, sort_order
+    FROM locations
+    ORDER BY sort_order, location_id;
+  </select>
+  <select id="select_by_id">
+    SELECT location_id, internal_name, sort_order
+    FROM locations
+    WHERE location_id = @location_id;
+  </select>
+  <insert id="upsert">
+    INSERT INTO locations (location_id, internal_name, sort_order)
+    VALUES (@location_id, @internal_name, @sort_order)
+    ON CONFLICT(location_id) DO UPDATE SET
+      internal_name = excluded.internal_name,
+      sort_order = excluded.sort_order;
+  </insert>
+  <delete id="delete_by_id">
+    DELETE FROM locations WHERE location_id = @location_id;
+  </delete>
+</sql>
